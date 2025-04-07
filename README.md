@@ -1,130 +1,126 @@
-# 🧪 In-Situ Leaching Simulation (Scalar Transport in OpenFOAM 12)
+# In-Situ Leaching – First Attempt at CFD with OpenFOAM 12
 
-This project marks my first practical attempt at running a CFD simulation using OpenFOAM. I chose a simple in-situ leaching (ISL) setup — a process used in mining where a fluid is injected into a porous ore body to extract valuable minerals without physically removing the rock.
+This project marks my **first practical attempt** at running a CFD simulation using **OpenFOAM**. I chose a simple **in-situ leaching (ISL)** setup — a process used in mining where a fluid is injected into a porous ore body to extract valuable minerals without physically removing the rock.
 
-While the real-world physics are more complex, this case focuses on modeling the scalar transport of a leaching agent in a 2D flow — tracking how it diffuses and mixes over time.
-
----
-
-## 📘 Background
-
-In-situ leaching (ISL) — also known as in-situ recovery — is a mining technique where a solvent is injected into a porous ore body to dissolve valuable minerals (e.g., copper, uranium). The resulting solution is then pumped back to the surface for processing.
-
-Rather than removing solid ore, ISL relies on underground chemical transport, making it environmentally less invasive but highly dependent on **fluid flow**, **porosity**, **permeability**, and **solute transport mechanisms**.
+While the real-world physics are more complex, this case focuses on modeling the **scalar transport** of a leaching agent in a 2D flow — tracking how it diffuses and mixes over time.
 
 ---
 
-## 🧪 Purpose
+## 🎯 Simulation Goal
 
-This project serves as:
-- A visual and verifiable CFD-based representation of scalar transport for **in-situ processes**.
-- A template to expand toward **porous media**, **reactive transport**, or **field-scale leaching**.
-- A proof-of-concept to **stop simulation dynamically** based on physics (mixing metric).
+The objective of this beginner simulation is to:
 
-**This simulation models**:
-- A rectangular 2D slice of porous ground.
-- Scalar transport of a leaching agent (field `T`) through the domain.
-- Advection by a uniform velocity field + molecular diffusion.
-- Continuous evaluation of *mixing quality* using a `coded` function.
+- Model how a scalar (representing a leaching fluid) **moves and spreads** through a 2D domain.
+- Use OpenFOAM’s **function-based solver setup** (not a compiled custom solver).
+- Implement a **custom-coded stopping condition** based on how well the scalar mixes (`mixingQuality > 0.9`).
+- Learn how OpenFOAM handles **mesh setup, field initialization, function objects, and transient runs**.
 
 ---
 
-## 🛠️ Simulation Setup
+## 🧰 Simulation Setup
 
-| Aspect                  | Details                                      |
-|-------------------------|----------------------------------------------|
-| OpenFOAM Version        | v12                                          |
-| Solver Framework        | `foamRun` using `functions` solver mode      |
-| Geometry                | 2D rectangular block: 1m (L) x 0.5m (H)      |
-| Grid                    | 50 × 25 cells                                |
-| Scalar Field            | `T` (leaching agent concentration)           |
-| Velocity Field          | Uniform inlet flow (1 m/s)                   |
-| Boundary Conditions     | `T=1` at inlet, zero gradient elsewhere      |
-| Diffusivity             | 1e-5 m²/s (constant)                         |
-| End Time                | 500 s                                        |
-| Time Step               | 1 s                                          |
-| Mixing Stop Condition   | Simulation ends if `mean(T)/max(T) > 0.9`    |
+| Item | Details |
+|------|---------|
+| **Software** | OpenFOAM v12 |
+| **Solver** | `foamRun -solver functions` with `incompressibleFluid` |
+| **Physics** | Passive scalar transport |
+| **Domain size** | 1 m × 0.5 m × 0.1 m |
+| **Mesh** | 50 × 25 × 1 |
+| **Inlet T** | 1.0 (fixed value) |
+| **Initial T** | 0.0 (uniform) |
+| **Diffusivity** | \( D_T = 1 \times 10^{-5} \) |
+| **Stopping Condition** | `mixingQuality > 0.9` (coded functionObject) |
 
 ---
 
-## 📈 Results
+## 🔬 What Is Being Simulated?
 
-| Time | Mixing Quality |
-|------|----------------|
-| 0s   | 0.0995         |
-| 20s  | 0.5004         |
-| 50s  | 0.7661         |
-| 85s  | 0.9003 (Stop)  |
-
-- Simulation stopped at **85s** when the domain reached the desired *homogeneity*.
-- Captured visualizations show front propagation and gradual smoothing of scalar field `T`.
-
----
-
-## 📊 Validation & Comparison
-
-This case is a simplified analogue of scalar tracer experiments often used in:
-- Groundwater contaminant transport studies.
-- Leach mining feasibility models.
-- Mixing tank validation (ideal plug flow with diffusion).
-
-### Governing Equation:
+This case uses the scalar transport equation:
 
 \[
-\frac{\partial T}{\partial t} + \nabla \cdot (\vec{U} T) = \nabla \cdot (D \nabla T)
+\frac{\partial T}{\partial t} + \vec{U} \cdot \nabla T = D_T \nabla^2 T
 \]
 
-Where:
-- `T` is the concentration of leachate,
-- `U` is the velocity field,
-- `D` is the diffusion coefficient (constant here).
-- Solved numerically using **DILUPBiCGStab**
+- \( T \): scalar concentration
+- \( \vec{U} \): velocity field (assumed steady or user-defined)
+- \( D_T \): scalar diffusivity
 
-While the geometry and flow are simplified, the results align with expected diffusion-dominated spreading and match the form of analytical/empirical profiles of tracer fronts.
+**T** is used to represent a **leaching agent**, and we’re observing how it enters from the left (inlet), spreads across the domain, and exits through the right (outlet).
 
 ---
 
-## 📁 File Structure
+## 📊 Results Summary
 
-```
-insituLeaching2D/
-├── 0/                  # Initial conditions (T, U)
-├── constant/
-│   ├── transportProperties
-│   ├── momentumTransport
-│   ├── polyMesh/blockMeshDict
-├── system/
-│   ├── controlDict
-│   ├── fvSchemes
-│   ├── fvSolution
-│   └── functions       # Includes scalarTransport and mixingQualityCheck
-├── dynamicCode/        # Compiled coded function for mixing quality
-├── log.foamRun         # Log of simulation
-└── postProcessing/     # Visual output
-```
+| Time (s) | Mixing Quality |
+|----------|----------------|
+| 0        | ~0.1           |
+| 25       | ~0.56          |
+| 50       | ~0.76          |
+| 85       | **0.90+** ✅ simulation auto-stopped |
 
----
-
-## 📦 How to Run
-
-```bash
-blockMesh
-foamRun -solver functions > log.foamRun
-```
+- The simulation stops automatically once the scalar is sufficiently mixed (based on the coded criterion `mean(T)/max(T) > 0.9`).
+- Scalar spread and mixing were visualized in ParaView with both **snapshots** and **animation exports**.
 
 ---
 
 ## 📸 Visual Output
 
+<p align="center">
+  <img src="assets/screenshot.png" alt="Domain Mesh Generated" width="700"/>
+</p>
 
+<p align="center">
+  <img src="assets/animation.gif" alt="Leeching Simulation" width="700"/>
+</p>
+
+---
+
+## 🌍 Real-World Context (vs. Simulation)
+
+| Aspect | Simulated | Real-World |
+|--------|-----------|------------|
+| Geometry | 2D simple box | Complex geology |
+| Flow | Laminar, constant | Multiphase, dynamic |
+| Leachant | Scalar field | Chemical solution (acid/base) |
+| Monitoring | `mixingQuality` | Concentration from well data |
+| Duration | ~100 seconds | Days to months |
+
+---
+
+## 🧠 Reflections & Learning Points
+
+- OpenFOAM 12 uses `foamRun` and function-based solvers — no need to compile scalarTransportFoam anymore.
+- The setup was tricky at first (missing dictionaries, solver errors), but eventually I learned to debug logs and functionObjects.
+- Writing a **custom stopping function** gave me a practical introduction to OpenFOAM’s coded functionObjects.
+- This project builds a foundation for more advanced setups like **reactive transport** or **porous media modeling**.
+
+---
+
+## 📁 Project Structure
+
+```text
+insituLeaching2D/
+├── 0/                   # Initial and boundary conditions
+├── constant/
+│   ├── polyMesh/        # Mesh definition (blockMeshDict)
+│   ├── transportProperties
+│   └── momentumTransport
+├── system/
+│   ├── controlDict
+│   ├── fvSchemes
+│   ├── fvSolution
+│   └── functions        # ScalarTransport + coded stop condition
+├── log.foamRun          # Output log (redirected)
+├── assets               # Screenshots and Animation exported from ParaView
+└── README.md            # This file
+```
 
 ---
 
 ## 📚 References
 
 1. OpenFOAM v12 Documentation – https://openfoam.org
-2. Environmental modeling of in-situ leach operations
-3. Analytical tracer transport in plug-flow reactors
+2. Wolf Dynamics - https://www.wolfdynamics.com/index.php
 
 ---
 
