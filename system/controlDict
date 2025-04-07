@@ -1,0 +1,81 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  12
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     foamRun;
+
+solver          functions;
+
+subSolver       incompressibleFluid;
+
+startFrom       startTime;
+
+startTime       0;
+
+subSolverTime   0;
+
+stopAt          endTime;
+
+endTime         500;
+
+deltaT          1;
+
+writeControl    timeStep;
+
+writeInterval   1;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  6;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable true;
+
+functions
+{
+    scalarTransport
+    {
+        type            scalarTransport;
+        libs            ("libfieldFunctionObjects.so");
+        field           T;
+        diffusivity     DT;
+    }
+    outletProbe
+    {
+        type            probes;
+        libs            ("libsampling.so");
+        writeControl    timeStep;
+        writeInterval   1;
+
+        fields
+        (
+            T
+        );
+
+        probeLocations
+        (
+            (0.89 0.25 0.05)  // Adjust this if your outlet is in a different spot
+        );
+    }
+}
+
+// ************************************************************************* //

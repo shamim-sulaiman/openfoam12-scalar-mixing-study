@@ -1,0 +1,744 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  12
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 12-855365b951e0
+Exec   : foamRun -solver functions
+Date   : Apr 07 2025
+Time   : 12:28:55
+Host   : "localhost.localdomain"
+PID    : 10246
+I/O    : uncollated
+Case   : /home/cfd/OpenFOAM/cfd-12/run/insituLeaching2D
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+--> FOAM Warning : 
+    From function Foam::functionObjectList::functionObjectList(const Foam::Time&, bool)
+    in file db/functionObjects/functionObjectList/functionObjectList.C at line 253
+    Both "system/functions" and "system/controlDict/functions" found, the latter will be ignored.
+Create mesh for time = 0
+
+Selecting solver functions
+Selecting solver incompressibleFluid
+Selecting viscosity model Newtonian
+Selecting turbulence model type laminar
+Selecting laminar stress model Stokes
+No MRF models present
+
+Courant Number mean: 0 max: 0
+
+PIMPLE: No convergence criteria found
+
+
+PIMPLE: Operating solver in transient mode with 1 outer corrector
+PIMPLE: Operating solver in PISO mode
+
+
+
+Starting time loop
+
+Using dynamicCode for coded mixingQualityCheck at line 21 in "/home/cfd/OpenFOAM/cfd-12/run/insituLeaching2D/system/functions/mixingQualityCheck"
+Creating new library in "dynamicCode/mixingQualityCheck/platforms/linux64GccDPInt32Opt/lib/libmixingQualityCheck_1c6dfda1fc97f004fa61c517ddb6cd4be9a7944f.so"
+"/home/cfd/OpenFOAM/OpenFOAM-12/etc/codeTemplates/dynamicCode/codedFunctionObjectTemplate.C" "/home/cfd/OpenFOAM/cfd-12/run/insituLeaching2D/dynamicCode/mixingQualityCheck/codedFunctionObjectTemplate.C"
+"/home/cfd/OpenFOAM/OpenFOAM-12/etc/codeTemplates/dynamicCode/codedFunctionObjectTemplate.H" "/home/cfd/OpenFOAM/cfd-12/run/insituLeaching2D/dynamicCode/mixingQualityCheck/codedFunctionObjectTemplate.H"
+Invoking "wmake -s libso /home/cfd/OpenFOAM/cfd-12/run/insituLeaching2D/dynamicCode/mixingQualityCheck"
+wmake libso /home/cfd/OpenFOAM/cfd-12/run/insituLeaching2D/dynamicCode/mixingQualityCheck
+    ln: ./lnInclude
+    wmkdep: codedFunctionObjectTemplate.C
+    Ctoo: codedFunctionObjectTemplate.C
+    ld: /home/cfd/OpenFOAM/cfd-12/run/insituLeaching2D/dynamicCode/mixingQualityCheck/../platforms/linux64GccDPInt32Opt/lib/libmixingQualityCheck_1c6dfda1fc97f004fa61c517ddb6cd4be9a7944f.so
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 1, Final residual = 7.72422e-07, No Iterations 21
+
+mixingQuality = 0.0995031
+Time = 1s
+
+ExecutionTime = 0.057806 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0490254, Final residual = 9.37946e-07, No Iterations 17
+
+mixingQuality = 0.149746
+Time = 2s
+
+ExecutionTime = 0.059034 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0245903, Final residual = 9.84991e-07, No Iterations 15
+
+mixingQuality = 0.187308
+Time = 3s
+
+ExecutionTime = 0.060134 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0185053, Final residual = 7.10235e-07, No Iterations 14
+
+mixingQuality = 0.218589
+Time = 4s
+
+ExecutionTime = 0.061129 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0156082, Final residual = 6.53586e-07, No Iterations 13
+
+mixingQuality = 0.245951
+Time = 5s
+
+ExecutionTime = 0.062218 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0138729, Final residual = 9.96083e-07, No Iterations 12
+
+mixingQuality = 0.270573
+Time = 6s
+
+ExecutionTime = 0.063166 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0127083, Final residual = 6.77567e-07, No Iterations 12
+
+mixingQuality = 0.29314
+Time = 7s
+
+ExecutionTime = 0.064094 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0118729, Final residual = 6.24195e-07, No Iterations 12
+
+mixingQuality = 0.314092
+Time = 8s
+
+ExecutionTime = 0.065102 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0112472, Final residual = 6.5882e-07, No Iterations 12
+
+mixingQuality = 0.33373
+Time = 9s
+
+ExecutionTime = 0.066046 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0107638, Final residual = 6.8866e-07, No Iterations 12
+
+mixingQuality = 0.352273
+Time = 10s
+
+ExecutionTime = 0.066977 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0103832, Final residual = 6.82466e-07, No Iterations 12
+
+mixingQuality = 0.369881
+Time = 11s
+
+ExecutionTime = 0.067913 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0100792, Final residual = 9.73547e-07, No Iterations 11
+
+mixingQuality = 0.38668
+Time = 12s
+
+ExecutionTime = 0.068821 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0098315, Final residual = 8.86596e-07, No Iterations 11
+
+mixingQuality = 0.402766
+Time = 13s
+
+ExecutionTime = 0.069877 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0096298, Final residual = 9.73564e-07, No Iterations 11
+
+mixingQuality = 0.418218
+Time = 14s
+
+ExecutionTime = 0.070801 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00946441, Final residual = 8.94869e-07, No Iterations 11
+
+mixingQuality = 0.433099
+Time = 15s
+
+ExecutionTime = 0.07172 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00932808, Final residual = 8.15458e-07, No Iterations 11
+
+mixingQuality = 0.44746
+Time = 16s
+
+ExecutionTime = 0.072636 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00921465, Final residual = 7.45956e-07, No Iterations 11
+
+mixingQuality = 0.461344
+Time = 17s
+
+ExecutionTime = 0.073639 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00912039, Final residual = 6.02934e-07, No Iterations 11
+
+mixingQuality = 0.474788
+Time = 18s
+
+ExecutionTime = 0.074552 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0090416, Final residual = 8.36046e-07, No Iterations 10
+
+mixingQuality = 0.487821
+Time = 19s
+
+ExecutionTime = 0.075422 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00897591, Final residual = 9.58159e-07, No Iterations 10
+
+mixingQuality = 0.500469
+Time = 20s
+
+ExecutionTime = 0.076274 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00892112, Final residual = 8.72766e-07, No Iterations 10
+
+mixingQuality = 0.512755
+Time = 21s
+
+ExecutionTime = 0.077223 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00887538, Final residual = 5.88536e-07, No Iterations 11
+
+mixingQuality = 0.524699
+Time = 22s
+
+ExecutionTime = 0.078157 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00883717, Final residual = 7.04782e-07, No Iterations 11
+
+mixingQuality = 0.536316
+Time = 23s
+
+ExecutionTime = 0.079085 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00880521, Final residual = 7.84092e-07, No Iterations 11
+
+mixingQuality = 0.547622
+Time = 24s
+
+ExecutionTime = 0.079997 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00877846, Final residual = 8.38595e-07, No Iterations 11
+
+mixingQuality = 0.558629
+Time = 25s
+
+ExecutionTime = 0.080945 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00875606, Final residual = 8.76361e-07, No Iterations 11
+
+mixingQuality = 0.569351
+Time = 26s
+
+ExecutionTime = 0.081966 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0087373, Final residual = 9.02964e-07, No Iterations 11
+
+mixingQuality = 0.579798
+Time = 27s
+
+ExecutionTime = 0.082891 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00872158, Final residual = 9.22086e-07, No Iterations 11
+
+mixingQuality = 0.589979
+Time = 28s
+
+ExecutionTime = 0.083804 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00870841, Final residual = 9.36186e-07, No Iterations 11
+
+mixingQuality = 0.599903
+Time = 29s
+
+ExecutionTime = 0.084725 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00869738, Final residual = 9.46872e-07, No Iterations 11
+
+mixingQuality = 0.609579
+Time = 30s
+
+ExecutionTime = 0.085736 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00868812, Final residual = 9.559e-07, No Iterations 11
+
+mixingQuality = 0.619014
+Time = 31s
+
+ExecutionTime = 0.086657 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00868037, Final residual = 9.63909e-07, No Iterations 11
+
+mixingQuality = 0.628216
+Time = 32s
+
+ExecutionTime = 0.087581 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00867387, Final residual = 9.70854e-07, No Iterations 11
+
+mixingQuality = 0.637191
+Time = 33s
+
+ExecutionTime = 0.088495 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00866842, Final residual = 9.76863e-07, No Iterations 11
+
+mixingQuality = 0.645946
+Time = 34s
+
+ExecutionTime = 0.089513 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00866385, Final residual = 9.81986e-07, No Iterations 11
+
+mixingQuality = 0.654486
+Time = 35s
+
+ExecutionTime = 0.090428 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00866002, Final residual = 9.86253e-07, No Iterations 11
+
+mixingQuality = 0.662818
+Time = 36s
+
+ExecutionTime = 0.09135 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0086568, Final residual = 9.8977e-07, No Iterations 11
+
+mixingQuality = 0.670947
+Time = 37s
+
+ExecutionTime = 0.092261 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00865411, Final residual = 9.92699e-07, No Iterations 11
+
+mixingQuality = 0.678879
+Time = 38s
+
+ExecutionTime = 0.093285 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00865185, Final residual = 9.9515e-07, No Iterations 11
+
+mixingQuality = 0.686618
+Time = 39s
+
+ExecutionTime = 0.094235 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864996, Final residual = 9.97227e-07, No Iterations 11
+
+mixingQuality = 0.694169
+Time = 40s
+
+ExecutionTime = 0.09511 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864837, Final residual = 9.98961e-07, No Iterations 11
+
+mixingQuality = 0.701537
+Time = 41s
+
+ExecutionTime = 0.096041 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864704, Final residual = 8.68179e-07, No Iterations 11
+
+mixingQuality = 0.708728
+Time = 42s
+
+ExecutionTime = 0.096936 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864591, Final residual = 9.92549e-07, No Iterations 11
+
+mixingQuality = 0.715744
+Time = 43s
+
+ExecutionTime = 0.097919 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864497, Final residual = 8.69743e-07, No Iterations 11
+
+mixingQuality = 0.722591
+Time = 44s
+
+ExecutionTime = 0.098827 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864418, Final residual = 9.94381e-07, No Iterations 11
+
+mixingQuality = 0.729272
+Time = 45s
+
+ExecutionTime = 0.099757 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864353, Final residual = 8.70977e-07, No Iterations 11
+
+mixingQuality = 0.735793
+Time = 46s
+
+ExecutionTime = 0.100727 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864297, Final residual = 9.95674e-07, No Iterations 11
+
+mixingQuality = 0.742156
+Time = 47s
+
+ExecutionTime = 0.101706 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864251, Final residual = 8.71848e-07, No Iterations 11
+
+mixingQuality = 0.748365
+Time = 48s
+
+ExecutionTime = 0.1027 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864211, Final residual = 9.9658e-07, No Iterations 11
+
+mixingQuality = 0.754425
+Time = 49s
+
+ExecutionTime = 0.103613 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864179, Final residual = 8.72464e-07, No Iterations 11
+
+mixingQuality = 0.760339
+Time = 50s
+
+ExecutionTime = 0.104512 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864151, Final residual = 9.97214e-07, No Iterations 11
+
+mixingQuality = 0.76611
+Time = 51s
+
+ExecutionTime = 0.105537 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864129, Final residual = 8.72896e-07, No Iterations 11
+
+mixingQuality = 0.771742
+Time = 52s
+
+ExecutionTime = 0.106493 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864109, Final residual = 9.97659e-07, No Iterations 11
+
+mixingQuality = 0.777238
+Time = 53s
+
+ExecutionTime = 0.107402 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864093, Final residual = 8.732e-07, No Iterations 11
+
+mixingQuality = 0.782602
+Time = 54s
+
+ExecutionTime = 0.108326 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864079, Final residual = 9.97972e-07, No Iterations 11
+
+mixingQuality = 0.787837
+Time = 55s
+
+ExecutionTime = 0.109287 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864068, Final residual = 8.73413e-07, No Iterations 11
+
+mixingQuality = 0.792946
+Time = 56s
+
+ExecutionTime = 0.110245 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864059, Final residual = 9.98191e-07, No Iterations 11
+
+mixingQuality = 0.797931
+Time = 57s
+
+ExecutionTime = 0.111164 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864051, Final residual = 8.73562e-07, No Iterations 11
+
+mixingQuality = 0.802797
+Time = 58s
+
+ExecutionTime = 0.112057 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864044, Final residual = 9.98345e-07, No Iterations 11
+
+mixingQuality = 0.807545
+Time = 59s
+
+ExecutionTime = 0.112937 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864039, Final residual = 8.73667e-07, No Iterations 11
+
+mixingQuality = 0.812179
+Time = 60s
+
+ExecutionTime = 0.113909 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864033, Final residual = 9.98453e-07, No Iterations 11
+
+mixingQuality = 0.816702
+Time = 61s
+
+ExecutionTime = 0.114835 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0086403, Final residual = 8.73741e-07, No Iterations 11
+
+mixingQuality = 0.821115
+Time = 62s
+
+ExecutionTime = 0.115762 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864026, Final residual = 9.98529e-07, No Iterations 11
+
+mixingQuality = 0.825422
+Time = 63s
+
+ExecutionTime = 0.116642 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864024, Final residual = 8.73793e-07, No Iterations 11
+
+mixingQuality = 0.829626
+Time = 64s
+
+ExecutionTime = 0.117697 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864021, Final residual = 9.98583e-07, No Iterations 11
+
+mixingQuality = 0.833728
+Time = 65s
+
+ExecutionTime = 0.118636 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0086402, Final residual = 8.7383e-07, No Iterations 11
+
+mixingQuality = 0.837732
+Time = 66s
+
+ExecutionTime = 0.119629 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864018, Final residual = 9.98621e-07, No Iterations 11
+
+mixingQuality = 0.841639
+Time = 67s
+
+ExecutionTime = 0.120614 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864017, Final residual = 8.73855e-07, No Iterations 11
+
+mixingQuality = 0.845452
+Time = 68s
+
+ExecutionTime = 0.121597 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864015, Final residual = 9.98647e-07, No Iterations 11
+
+mixingQuality = 0.849173
+Time = 69s
+
+ExecutionTime = 0.122514 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864014, Final residual = 8.73873e-07, No Iterations 11
+
+mixingQuality = 0.852805
+Time = 70s
+
+ExecutionTime = 0.123452 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864013, Final residual = 9.98666e-07, No Iterations 11
+
+mixingQuality = 0.856349
+Time = 71s
+
+ExecutionTime = 0.124332 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864013, Final residual = 8.73886e-07, No Iterations 11
+
+mixingQuality = 0.859808
+Time = 72s
+
+ExecutionTime = 0.125282 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864012, Final residual = 9.98679e-07, No Iterations 11
+
+mixingQuality = 0.863183
+Time = 73s
+
+ExecutionTime = 0.126312 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864012, Final residual = 8.73895e-07, No Iterations 11
+
+mixingQuality = 0.866478
+Time = 74s
+
+ExecutionTime = 0.127232 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864011, Final residual = 9.98688e-07, No Iterations 11
+
+mixingQuality = 0.869693
+Time = 75s
+
+ExecutionTime = 0.128169 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864011, Final residual = 8.73901e-07, No Iterations 11
+
+mixingQuality = 0.87283
+Time = 76s
+
+ExecutionTime = 0.129209 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0086401, Final residual = 9.98694e-07, No Iterations 11
+
+mixingQuality = 0.875892
+Time = 77s
+
+ExecutionTime = 0.130135 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864011, Final residual = 8.73906e-07, No Iterations 11
+
+mixingQuality = 0.87888
+Time = 78s
+
+ExecutionTime = 0.131033 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0086401, Final residual = 9.98699e-07, No Iterations 11
+
+mixingQuality = 0.881797
+Time = 79s
+
+ExecutionTime = 0.132 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0086401, Final residual = 8.73909e-07, No Iterations 11
+
+mixingQuality = 0.884643
+Time = 80s
+
+ExecutionTime = 0.132977 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0086401, Final residual = 9.98702e-07, No Iterations 11
+
+mixingQuality = 0.88742
+Time = 81s
+
+ExecutionTime = 0.133875 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0086401, Final residual = 8.73911e-07, No Iterations 11
+
+mixingQuality = 0.890131
+Time = 82s
+
+ExecutionTime = 0.13478 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0086401, Final residual = 9.98704e-07, No Iterations 11
+
+mixingQuality = 0.892776
+Time = 83s
+
+ExecutionTime = 0.135695 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0086401, Final residual = 8.73912e-07, No Iterations 11
+
+mixingQuality = 0.895358
+Time = 84s
+
+ExecutionTime = 0.136586 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.00864009, Final residual = 9.98706e-07, No Iterations 11
+
+mixingQuality = 0.897878
+Time = 85s
+
+ExecutionTime = 0.137573 s  ClockTime = 2 s
+
+scalarTransport write:
+DILUPBiCGStab:  Solving for T, Initial residual = 0.0086401, Final residual = 8.73913e-07, No Iterations 11
+
+mixingQuality = 0.900337
+End
+
