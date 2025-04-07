@@ -37,13 +37,11 @@ The objective of this beginner simulation is to:
 
 This case uses the scalar transport equation:
 
-\[
-\frac{\partial T}{\partial t} + \vec{U} \cdot \nabla T = D_T \nabla^2 T
-\]
+![Scalar transport equation](assets/equation1.png)
 
-- \( T \): scalar concentration
-- \( \vec{U} \): velocity field (assumed steady or user-defined)
-- \( D_T \): scalar diffusivity
+- \( T \): ![T symbol](assets/equation2.png) scalar concentration
+- \( \vec{U} \): ![U symbol](assets/equation3.png) velocity field (assumed steady or user-defined)
+- \( D_T \): ![Dt symbol](assets/equation4.png) scalar diffusivity
 
 **T** is used to represent a **leaching agent**, and we’re observing how it enters from the left (inlet), spreads across the domain, and exits through the right (outlet).
 
