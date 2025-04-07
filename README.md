@@ -39,9 +39,9 @@ This case uses the scalar transport equation:
 
 ![Scalar transport equation](assets/equation1.png)
 
-- \( T \): ![T symbol](assets/equation2.png) scalar concentration
-- \( \vec{U} \): ![U symbol](assets/equation3.png) velocity field (assumed steady or user-defined)
-- \( D_T \): ![Dt symbol](assets/equation4.png) scalar diffusivity
+- ![T symbol](assets/equation2.png): scalar concentration
+- ![U symbol](assets/equation3.png): velocity field (assumed steady or user-defined)
+- ![Dt symbol](assets/equation4.png): scalar diffusivity
 
 **T** is used to represent a **leaching agent**, and we’re observing how it enters from the left (inlet), spreads across the domain, and exits through the right (outlet).
 
