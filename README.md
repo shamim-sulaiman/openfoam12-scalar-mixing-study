@@ -4,16 +4,12 @@ This project represents my first practical exercise using **OpenFOAM** for compu
 
 Although industrial ISL processes are significantly more complex, this simulation focuses on tracking **scalar transport** of a leaching agent in a 2D flow environment.
 
----
-
-## Simulation Objectives
+## Objectives
 
 - Model the movement and dispersion of a scalar field representing the leachant  
 - Utilize OpenFOAM’s **function-based solver** without compiling a custom application  
 - Introduce a **coded stopping condition** based on mixing performance (`mixingQuality > 0.9`)  
 - Gain practical understanding of OpenFOAM workflows: meshing, initialization, field monitoring, and transient simulation
-
----
 
 ## Simulation Setup
 
@@ -29,8 +25,6 @@ Although industrial ISL processes are significantly more complex, this simulatio
 | **Diffusivity (Dₜ)** | \(1 \times 10^{-5}\) m²/s         |
 | **Stopping Criteria** | `mixingQuality > 0.9` (coded object) |
 
----
-
 ## Governing Equation
 
 This case uses the scalar transport equation:
@@ -42,8 +36,6 @@ This case uses the scalar transport equation:
 - ![Dt symbol](assets/equation4.png): scalar diffusivity
 
 **T** is used to represent a **leaching agent**, and we’re observing how it enters from the left (inlet), spreads across the domain, and exits through the right (outlet).
-
----
 
 ## Results Summary
 
@@ -57,8 +49,6 @@ This case uses the scalar transport equation:
 - The simulation stops automatically once the scalar is sufficiently mixed (based on the coded criterion `mean(T)/max(T) > 0.9`).
 - Scalar spread and mixing were visualized in ParaView with both **snapshots** and **animation exports**.
 
----
-
 ## Visual Output
 
 <p align="center">
@@ -68,8 +58,6 @@ This case uses the scalar transport equation:
 <p align="center">
   <img src="assets/animation.gif" alt="Leeching Simulation" width="700"/>
 </p>
-
----
 
 ## Real-World Context (vs. Simulation)
 
@@ -81,16 +69,12 @@ This case uses the scalar transport equation:
 | Monitoring | `mixingQuality` | Concentration from well data |
 | Duration | ~100 seconds | Days to months |
 
----
-
 ## Notes
 
 - OpenFOAM 12 uses `foamRun` and function-based solvers — no need to compile scalarTransportFoam anymore.
 - The setup was tricky at first (missing dictionaries, solver errors), but eventually I learned to debug logs and functionObjects.
 - Writing a **custom stopping function** gave me a practical introduction to OpenFOAM’s coded functionObjects.
 - This project builds a foundation for more advanced setups like **reactive transport** or **porous media modeling**.
-
----
 
 ## Project Structure
 
