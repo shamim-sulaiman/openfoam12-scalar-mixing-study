@@ -37,7 +37,9 @@ This case uses the scalar transport equation:
 
 **T** is used to represent a **leaching agent**, and we’re observing how it enters from the left (inlet), spreads across the domain, and exits through the right (outlet).
 
-## Results Summary
+---
+
+### Results Summary
 
 | Time (s) | Mixing Quality |
 |----------|----------------|
