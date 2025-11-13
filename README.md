@@ -1,17 +1,17 @@
-# In-Situ Leaching – First Attempt at CFD with OpenFOAM 12
+## In-Situ Leaching – First Attempt at CFD with OpenFOAM 12
 
 This project represents my first practical exercise using **OpenFOAM** for computational fluid dynamics (CFD). I selected a simplified **in-situ leaching (ISL)** scenario—an extraction method where a leaching fluid is injected into porous ore to recover valuable minerals without excavation.
 
 Although industrial ISL processes are significantly more complex, this simulation focuses on tracking **scalar transport** of a leaching agent in a 2D flow environment.
 
-## Objectives
+### Objectives
 
 - Model the movement and dispersion of a scalar field representing the leachant  
 - Utilize OpenFOAM’s **function-based solver** without compiling a custom application  
 - Introduce a **coded stopping condition** based on mixing performance (`mixingQuality > 0.9`)  
 - Gain practical understanding of OpenFOAM workflows: meshing, initialization, field monitoring, and transient simulation
 
-## Simulation Setup
+### Simulation Setup
 
 | Parameter         | Description                          |
 |------------------|--------------------------------------|
@@ -25,7 +25,7 @@ Although industrial ISL processes are significantly more complex, this simulatio
 | **Diffusivity (Dₜ)** | \(1 \times 10^{-5}\) m²/s         |
 | **Stopping Criteria** | `mixingQuality > 0.9` (coded object) |
 
-## Governing Equation
+### Governing Equation
 
 This case uses the scalar transport equation:
 
@@ -49,7 +49,7 @@ This case uses the scalar transport equation:
 - The simulation stops automatically once the scalar is sufficiently mixed (based on the coded criterion `mean(T)/max(T) > 0.9`).
 - Scalar spread and mixing were visualized in ParaView with both **snapshots** and **animation exports**.
 
-## Visual Output
+### Visual Output
 
 <p align="center">
   <img src="assets/screenshot.png" alt="Domain Mesh Generated" width="700"/>
@@ -59,7 +59,7 @@ This case uses the scalar transport equation:
   <img src="assets/animation.gif" alt="Leeching Simulation" width="700"/>
 </p>
 
-## Real-World Context (vs. Simulation)
+### Real-World Context (vs. Simulation)
 
 | Aspect | Simulated | Real-World |
 |--------|-----------|------------|
@@ -69,14 +69,14 @@ This case uses the scalar transport equation:
 | Monitoring | `mixingQuality` | Concentration from well data |
 | Duration | ~100 seconds | Days to months |
 
-## Notes
+### Notes
 
 - OpenFOAM 12 uses `foamRun` and function-based solvers — no need to compile scalarTransportFoam anymore.
 - The setup was tricky at first (missing dictionaries, solver errors), but eventually I learned to debug logs and functionObjects.
 - Writing a **custom stopping function** gave me a practical introduction to OpenFOAM’s coded functionObjects.
 - This project builds a foundation for more advanced setups like **reactive transport** or **porous media modeling**.
 
-## Project Structure
+### Project Structure
 
 ```text
 insituLeaching2D/
